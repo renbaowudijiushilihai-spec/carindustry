@@ -123,8 +123,32 @@ select {
   border-radius: 8px;
 }
 
-#serviceStatus {
+#serviceStatus,
+.update-panel span {
   color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.update-panel {
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.update-log {
+  display: grid;
+  gap: 6px;
+  max-height: 160px;
+  overflow: auto;
+}
+
+.update-log-item {
+  padding: 8px;
+  border-radius: 6px;
+  background: #f6f8fc;
+  color: #40506b;
   font-size: 12px;
   line-height: 1.45;
 }

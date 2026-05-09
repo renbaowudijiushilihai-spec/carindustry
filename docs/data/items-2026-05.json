@@ -6,7 +6,9 @@
     "updated_at": "2026-05-09",
     "last_update_mode": "手动按钮立即更新",
     "last_update_checked": 100,
-    "last_update_added": 0
+    "last_update_added": 0,
+    "last_update_at": "2026-05-09 21:20:20",
+    "update_days_count": 1
   },
   "items": [
     {
@@ -188,6 +190,69 @@
       "source_level": "政府科技门户",
       "source_type": "官方转载",
       "url": "https://www.ncsti.gov.cn/kjdt/kjrd/202605/t20260507_245893.html"
+    }
+  ],
+  "update_log": [
+    {
+      "run_at": "2026-05-09 21:20:20",
+      "mode": "手动按钮立即更新",
+      "checked_count": 100,
+      "added_count": 0,
+      "error_count": 0,
+      "errors": [],
+      "queries": [
+        {
+          "query": "site:miit.gov.cn 汽车 OR 新能源汽车 工业和信息化部 2026年5月",
+          "checked": 10,
+          "added": 0
+        },
+        {
+          "query": "site:miit.gov.cn 汽车 标准 征求意见 2026年5月",
+          "checked": 10,
+          "added": 0
+        },
+        {
+          "query": "site:samr.gov.cn 汽车 国家标准 2026年5月",
+          "checked": 10,
+          "added": 0
+        },
+        {
+          "query": "site:std.samr.gov.cn 汽车 国家标准 2026",
+          "checked": 10,
+          "added": 0
+        },
+        {
+          "query": "site:mofcom.gov.cn 汽车 以旧换新 2026年5月",
+          "checked": 10,
+          "added": 0
+        },
+        {
+          "query": "site:customs.gov.cn 汽车 出口 新能源汽车 2026年5月",
+          "checked": 10,
+          "added": 0
+        },
+        {
+          "query": "site:transport.ec.europa.eu vehicle automotive zero emission 2026",
+          "checked": 10,
+          "added": 0
+        },
+        {
+          "query": "site:eur-lex.europa.eu vehicle automotive regulation 2026",
+          "checked": 10,
+          "added": 0
+        },
+        {
+          "query": "site:unece.org WP.29 vehicle automated driving 2026",
+          "checked": 10,
+          "added": 0
+        },
+        {
+          "query": "site:nhtsa.gov automated driving systems vehicle safety 2026",
+          "checked": 10,
+          "added": 0
+        }
+      ],
+      "added_titles": []
     }
   ]
 }

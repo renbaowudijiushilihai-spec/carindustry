@@ -21,6 +21,9 @@ const els = {
   serviceInput: document.querySelector("#serviceInput"),
   serviceStatus: document.querySelector("#serviceStatus"),
   saveServiceBtn: document.querySelector("#saveServiceBtn"),
+  lastUpdateText: document.querySelector("#lastUpdateText"),
+  updateDaysText: document.querySelector("#updateDaysText"),
+  updateLogList: document.querySelector("#updateLogList"),
   downloadBtn: document.querySelector("#downloadBtn"),
   resultCount: document.querySelector("#resultCount"),
   selectedCount: document.querySelector("#selectedCount"),
@@ -157,6 +160,39 @@ function render() {
   }
 }
 
+function renderUpdateLog(payload) {
+  const period = payload.period || {};
+  const logs = payload.update_log || [];
+  const lastUpdate = period.last_update_at || period.updated_at || "暂无";
+  const days = period.update_days_count || 0;
+
+  if (els.lastUpdateText) {
+    els.lastUpdateText.textContent = `上次更新：${lastUpdate}`;
+  }
+  if (els.updateDaysText) {
+    els.updateDaysText.textContent = `累计更新天数：${days}`;
+  }
+  if (!els.updateLogList) {
+    return;
+  }
+
+  els.updateLogList.innerHTML = "";
+  if (!logs.length) {
+    const empty = document.createElement("div");
+    empty.className = "update-log-item";
+    empty.textContent = "暂无更新日志。";
+    els.updateLogList.appendChild(empty);
+    return;
+  }
+
+  for (const log of logs.slice(0, 5)) {
+    const item = document.createElement("div");
+    item.className = "update-log-item";
+    item.textContent = `${log.run_at}｜检查 ${log.checked_count || 0} 条｜新增 ${log.added_count || 0} 条｜错误 ${log.error_count || 0} 条`;
+    els.updateLogList.appendChild(item);
+  }
+}
+
 async function downloadReport() {
   if (!state.selected.size) {
     els.statusText.textContent = "请先勾选要汇报的信息。";
@@ -215,6 +251,7 @@ async function loadData() {
   const payload = await response.json();
   state.items = payload.items;
   state.period = payload.period;
+  renderUpdateLog(payload);
 
   els.periodText.textContent = `统计周期：${state.period.start} 至 ${state.period.end}｜纳入口径：${state.period.basis}｜更新时间：${state.period.updated_at}`;
 
