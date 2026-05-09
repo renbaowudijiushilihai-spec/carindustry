@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>汽车行业动态监控</title>
+    <link rel="stylesheet" href="static/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">汽车行业信息统计</p>
+        <h1>动态监控与汇报选择</h1>
+        <p id="periodText" class="period">加载中...</p>
+      </div>
+      <div class="top-actions">
+        <button id="updateBtn" type="button">立即更新</button>
+        <button id="downloadBtn" class="primary" type="button">下载汇报 Word</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="filters" aria-label="筛选条件">
+        <div class="panel service-panel">
+          <label for="serviceInput">本机服务地址</label>
+          <input id="serviceInput" type="url" placeholder="电脑在线时填当前隧道地址；离线可不填" />
+          <button id="saveServiceBtn" type="button">连接服务</button>
+          <span id="serviceStatus">正在检测服务...</span>
+        </div>
+
+        <div class="panel">
+          <label for="searchInput">关键词</label>
+          <input id="searchInput" type="search" placeholder="搜索标题、摘要、来源" />
+        </div>
+
+        <div class="panel">
+          <label for="categoryFilter">分类</label>
+          <select id="categoryFilter">
+            <option value="">全部分类</option>
+          </select>
+        </div>
+
+        <div class="panel">
+          <label for="regionFilter">地区</label>
+          <select id="regionFilter">
+            <option value="">全部地区</option>
+          </select>
+        </div>
+
+        <div class="panel">
+          <label for="sourceFilter">来源等级</label>
+          <select id="sourceFilter">
+            <option value="">全部来源</option>
+          </select>
+        </div>
+
+        <div class="panel toggle-row">
+          <input id="selectedOnly" type="checkbox" />
+          <label for="selectedOnly">只看已选</label>
+        </div>
+
+        <div class="actions">
+          <button id="selectVisibleBtn" type="button">选择当前结果</button>
+          <button id="clearSelectedBtn" type="button">清空选择</button>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div class="summary">
+          <strong id="resultCount">0</strong>
+          <span>条候选</span>
+          <strong id="selectedCount">0</strong>
+          <span>条已选</span>
+          <span id="statusText"></span>
+        </div>
+        <div id="cards" class="cards" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <script src="static/app.js"></script>
+  </body>
+</html>

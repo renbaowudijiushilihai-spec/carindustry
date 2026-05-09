@@ -1,0 +1,292 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --text: #172033;
+  --muted: #657188;
+  --line: #dbe2ee;
+  --blue: #1f5fbf;
+  --blue-dark: #174a94;
+  --green: #16794f;
+  --orange: #a55312;
+  --shadow: 0 12px 30px rgba(23, 32, 51, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  padding: 28px 36px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.top-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.25;
+}
+
+.period {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 292px 1fr;
+  gap: 24px;
+  padding: 24px 36px 36px;
+}
+
+.filters {
+  position: sticky;
+  top: 18px;
+  align-self: start;
+}
+
+.panel {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.panel label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #33415c;
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input[type="search"],
+select {
+  width: 100%;
+  min-height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.toggle-row {
+  grid-template-columns: 18px 1fr;
+  align-items: center;
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.actions {
+  display: grid;
+  gap: 10px;
+}
+
+.service-panel {
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+#serviceStatus {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+button {
+  min-height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 9px 14px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: #a9b7cc;
+}
+
+.primary {
+  background: var(--blue);
+  color: #ffffff;
+  border-color: var(--blue);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.primary:hover {
+  background: var(--blue-dark);
+}
+
+.primary:disabled,
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.content {
+  min-width: 0;
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  margin-bottom: 14px;
+  color: var(--muted);
+}
+
+.summary strong {
+  color: var(--text);
+}
+
+#statusText {
+  margin-left: auto;
+  color: var(--orange);
+}
+
+.cards {
+  display: grid;
+  gap: 14px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 14px;
+  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.card input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 4px;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.35;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 12px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #eef3fb;
+  color: #2b466d;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.tag.official {
+  background: #eaf6f0;
+  color: var(--green);
+}
+
+.summary-text,
+.value-text {
+  margin: 0 0 10px;
+  color: #2f3b52;
+  line-height: 1.65;
+}
+
+.value-text strong {
+  color: var(--text);
+}
+
+.source-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.source-row a {
+  color: var(--blue);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.source-row a:hover {
+  text-decoration: underline;
+}
+
+.empty {
+  padding: 28px;
+  color: var(--muted);
+  text-align: center;
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+}
+
+@media (max-width: 860px) {
+  .topbar {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 22px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+
+  .filters {
+    position: static;
+  }
+}
