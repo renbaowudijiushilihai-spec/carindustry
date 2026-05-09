@@ -17,7 +17,6 @@ const els = {
   selectedOnly: document.querySelector("#selectedOnly"),
   selectVisibleBtn: document.querySelector("#selectVisibleBtn"),
   clearSelectedBtn: document.querySelector("#clearSelectedBtn"),
-  updateBtn: document.querySelector("#updateBtn"),
   serviceInput: document.querySelector("#serviceInput"),
   serviceStatus: document.querySelector("#serviceStatus"),
   saveServiceBtn: document.querySelector("#saveServiceBtn"),
@@ -81,7 +80,6 @@ function render() {
   els.resultCount.textContent = state.filtered.length;
   els.selectedCount.textContent = state.selected.size;
   els.downloadBtn.disabled = state.selected.size === 0 || !state.serviceOnline;
-  els.updateBtn.disabled = !state.serviceOnline;
   els.cards.innerHTML = "";
 
   if (!state.filtered.length) {
@@ -261,30 +259,6 @@ async function loadData() {
   render();
 }
 
-async function updateNow() {
-  if (!state.serviceOnline) {
-    els.statusText.textContent = "本机服务未连接，暂时不能立即更新。";
-    return;
-  }
-
-  els.statusText.textContent = "正在更新官方来源...";
-  els.updateBtn.disabled = true;
-
-  try {
-    const response = await fetch(`${state.serviceBase}/api/update`, { method: "POST" });
-    const payload = await response.json();
-    if (!response.ok) {
-      throw new Error(payload.description || "更新失败");
-    }
-    await loadData();
-    els.statusText.textContent = `更新完成：检查 ${payload.checked_count} 条，新增 ${payload.added_count} 条。`;
-  } catch (error) {
-    els.statusText.textContent = error.message || "更新失败。";
-  } finally {
-    els.updateBtn.disabled = !state.serviceOnline;
-  }
-}
-
 function defaultServiceBase() {
   if (!state.isStaticPage) {
     return "";
@@ -362,7 +336,6 @@ async function init() {
   });
 
   els.downloadBtn.addEventListener("click", downloadReport);
-  els.updateBtn.addEventListener("click", updateNow);
   els.saveServiceBtn?.addEventListener("click", saveServiceBase);
 }
 
